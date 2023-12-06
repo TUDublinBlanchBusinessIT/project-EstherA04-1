@@ -1,31 +1,26 @@
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "student_info";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+include ("dbcon, php");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$sql = "select * from students";
+
+echo "<TABLE border='1'>"
+
+$result = mysqli_query ($con, $sql);
+
+while($row = mysqli_fetch_assoc($result)) {
+    $fn= $row ['firstname'];
+    $sn= $row ['surname'];
+    $dob= $row ['dateofbirth];
+    $PPSN= $row ['PPSN'];
+    $address= $row ['address'];
+    $email= $row ['email'];
+
+   echo <TR><TD>$fn/TD><TD>$sn/TD><TD>$dob</TD<TD>$PPSN</TD<TD>$address</TD<TD>$email";
 }
+echo "</TABLE>"; . 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $DOB = $_POST['DOB'];
-    $PPSN = $_POST['PPSN'];
-    $address = $_POST['address'];
-    $email = $_POST['email'];
+mysqli_close(scon);
 
-    $sql = "INSERT INTO students (name, DOB, PPSN, address, email,) VALUES ('$name','$DOB', '$PPSN','$address','$email')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Record inserted successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-
-$conn->close();
 ?>
