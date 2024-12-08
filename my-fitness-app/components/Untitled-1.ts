@@ -3,7 +3,7 @@ import firebase from 'firebase'; // Import Firebase from the correct package
 // Firebase configuration object
 const firebaseConfig = {
   apiKey: "AIzaSyBgPfpAN65GiYN36M7AKY-3KCOoifb2KLs",
-  databaseURL: "https://myfitnessapp-6d681.firebaseio.com",  // Corrected key here
+  databade:"https://myfitnessapp-6d681.firebaseapp.com" ,
   authDomain: "myfitnessapp-6d681.firebaseapp.com",
   projectId: "myfitnessapp-6d681",
   storageBucket: "myfitnessapp-6d681.appspot.com",
