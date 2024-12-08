@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function WorkoutScreen() {
+export default function WorkoutScreen({ navigation }) {
   const [completedWorkouts, setCompletedWorkouts] = useState([]);
 
   const workoutPlan = [
@@ -18,6 +18,10 @@ export default function WorkoutScreen() {
     } else {
       setCompletedWorkouts([...completedWorkouts, id]);
     }
+  };
+
+  const handleFinishWorkout = () => {
+    navigation.navigate('Summary'); // Navigate to the SummaryScreen
   };
 
   return (
@@ -52,6 +56,10 @@ export default function WorkoutScreen() {
           </View>
         ))}
       </ScrollView>
+
+      <TouchableOpacity style={styles.finishButton} onPress={handleFinishWorkout}>
+        <Text style={styles.finishButtonText}>Finish Workout</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -59,13 +67,13 @@ export default function WorkoutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#f4e1f5',
     padding: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#4a4e69',
+    color: '#6a4c9c',
     textAlign: 'center',
     marginBottom: 20,
   },
@@ -76,7 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     padding: 15,
     borderRadius: 8,
-    shadowColor: '#000',
+    shadowColor: '#b2a2d2',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
@@ -87,25 +95,37 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   completedWorkoutItem: {
-    backgroundColor: '#d1e7dd',
+    backgroundColor: '#e8d8e1',
   },
   workoutText: {
     fontSize: 18,
-    color: '#333',
+    color: '#4a4e69',
     flex: 1,
   },
   completeButton: {
-    backgroundColor: '#4a4e69',
+    backgroundColor: '#6a4c9c',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
   },
   completedButton: {
-    backgroundColor: '#198754',
+    backgroundColor: '#a29bfe',
   },
   buttonText: {
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 16,
+  },
+  finishButton: {
+    backgroundColor: '#6a4c9c',
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  finishButtonText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
