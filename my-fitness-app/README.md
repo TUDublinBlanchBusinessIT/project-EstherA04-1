@@ -1,3 +1,7 @@
+login credentials
+Email: esther@esther.com
+Password: Esther20_
+
 Gymify
 Welcome to Gymify - your personal fitness companion designed to help you stay on track with your health and fitness goals. Gymify allows you to plan workouts, track progress, monitor calories burned, and stay consistent with your fitness journey.
 
